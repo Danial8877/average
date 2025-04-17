@@ -1,0 +1,401 @@
+<!-- سازنده : دانیال جمشیدی -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>میانگین نمرات</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Vazirmatn", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        animation: fadeIn 1s ease-in-out;
+        overflow-y: scroll;
+        width: 100%;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .login-container {
+        background: white;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        padding: 30px;
+        width: 90%;
+        text-align: center;
+        animation: slideUp 0.8s ease-in-out;
+        margin: 80px 20px 80px 20px;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .login-container h2 {
+        font-size: 26px;
+        margin-bottom: 15px;
+        color: #333;
+        font-weight: bold;
+      }
+      .login-container p {
+        color: #555;
+        margin-bottom: 20px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .login-container input {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 20px; /* افزایش فاصله بین فیلد ورودی و دکمه */
+        font-size: 15px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      .login-container input:focus {
+        border-color: #ff758c;
+        outline: none;
+        box-shadow: 0 0 12px rgba(255, 117, 140, 0.3);
+      }
+      .login-container button {
+        width: 100%;
+        background: linear-gradient(90deg, #ff758c, #ff7eb3);
+        color: white;
+        padding: 14px;
+        border: none;
+        border-radius: 10px;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        transform: scale(1);
+        display: block;
+        margin-top: 10px; /* فاصله مناسب بین دکمه و فیلد ورودی */
+      }
+      .login-container button:hover {
+        background: linear-gradient(90deg, #ff5f7e, #ff6e9c);
+        transform: scale(1.05);
+      }
+      .login-container .register {
+        margin-top: 15px;
+        color: #555;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .login-container .register a {
+        color: #ff758c;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+      .login-container .register a:hover {
+        color: #ff5f7e;
+      }
+      @media (max-width: 480px) {
+        .login-container {
+          width: 95%;
+          padding: 25px;
+        }
+      }
+      #form div label {
+        margin: 7px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      #form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #form div {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>میانگین نمرات کارنامه دهم انسانی</h2>
+      <p>لطفا تمامی فیلد های زیر را به ( عدد ) وارد نمایید</p>
+      <form id="form">
+        <div>
+          <label for=""> فارسی : </label>
+          <input type="number" placeholder=" نمره درس " id="farsi" required />
+          <input type="number" placeholder=" ضریب درس " id="farsi-a" required />
+        </div>
+        <div>
+          <label for=""> نگارش : </label>
+          <input
+            type="number"
+            placeholder=" نمره درس "
+            id="negaresh"
+            required
+          />
+          <input
+            type="number"
+            placeholder=" ضریب درس "
+            id="negaresh-a"
+            required
+          />
+        </div>
+        <div>
+          <label for=""> آمادگی دفاعی : </label>
+          <input type="number" placeholder=" نمره درس " id="defai" required />
+          <input type="number" placeholder=" ضریب درس " id="defai-a" required />
+        </div>
+        <div>
+          <label for=""> زبان خارجی : </label>
+          <input type="number" placeholder=" نمره درس " id="english" required />
+          <input
+            type="number"
+            placeholder=" ضریب درس "
+            id="english-a"
+            required
+          />
+        </div>
+        <div>
+          <label for=""> تربیت بدنی : </label>
+          <input type="number" placeholder=" نمره درس " id="sport" required />
+          <input type="number" placeholder=" ضریب درس " id="sport-a" required />
+        </div>
+        <div>
+          <label for=""> جغرافیای عمومی : </label>
+          <input type="number" placeholder=" نمره درس " id="geo" required />
+          <input type="number" placeholder=" ضریب درس " id="geo-a" required />
+        </div>
+        <div>
+          <label for=""> دینی اخلاق قرآن : </label>
+          <input type="number" placeholder=" نمره درس " id="quran" required />
+          <input type="number" placeholder=" ضریب درس " id="quran-a" />
+        </div>
+        <div>
+          <label for=""> عربی : </label>
+          <input type="number" placeholder=" نمره درس " id="arabi" required />
+          <input type="number" placeholder=" ضریب درس " id="arabi-a" required />
+        </div>
+        <div>
+          <label for=""> علوم و فنون ادبی : </label>
+          <input type="number" placeholder=" نمره درس " id="fonon" required />
+          <input type="number" placeholder=" ضریب درس " id="fonon-a" required />
+        </div>
+        <div>
+          <label for=""> ریاضی و آمار : </label>
+          <input type="number" placeholder=" نمره درس " id="riyazi" required />
+          <input
+            type="number"
+            placeholder=" ضریب درس "
+            id="riyazi-a"
+            required
+          />
+        </div>
+        <div>
+          <label for=""> تاریخ : </label>
+          <input type="number" placeholder=" نمره درس " id="history" required />
+          <input
+            type="number"
+            placeholder=" ضریب درس "
+            id="history-a"
+            required
+          />
+        </div>
+        <div>
+          <label for=""> جامعه شناسی : </label>
+          <input type="number" placeholder=" نمره درس " id="public" required />
+          <input
+            type="number"
+            placeholder=" ضریب درس "
+            id="public-a"
+            required
+          />
+        </div>
+        <div>
+          <label for=""> اقتصاد : </label>
+          <input type="number" placeholder=" نمره درس " id="price" required />
+          <input type="number" placeholder=" ضریب درس " id="price-a" required />
+        </div>
+        <div>
+          <label for=""> منطق : </label>
+          <input type="number" placeholder=" نمره درس " id="mantegh" required />
+          <input
+            type="number"
+            placeholder=" ضریب درس "
+            id="mantegh-a"
+            required
+          />
+        </div>
+        <div>
+          <label for=""> سواد رسانه ای : </label>
+          <input type="number" placeholder=" نمره درس " id="savad" required />
+          <input type="number" placeholder=" ضریب درس " id="savad-a" required />
+        </div>
+        <div>
+          <label for=""> انظباط : </label>
+          <input type="number" placeholder=" نمره درس " id="nazm" required />
+          <input type="number" placeholder=" ضریب درس " id="nazm-a" required />
+        </div>
+
+        <button type="submit">ادامه</button>
+      </form>
+      <div class="register"><a> سازنده : دانیال جمشیدی </a></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      // Forms
+
+      let Form = document.getElementById("form");
+
+      // Marks
+
+      let Farsi = document.getElementById("farsi");
+      let Negaresh = document.getElementById("negaresh");
+      let Defai = document.getElementById("defai");
+      let English = document.getElementById("english");
+      let Sport = document.getElementById("sport");
+      let Geo = document.getElementById("geo");
+      let Quran = document.getElementById("quran");
+      let Arabi = document.getElementById("arabi");
+      let Fonon = document.getElementById("fonon");
+      let Riyazi = document.getElementById("riyazi");
+      let History = document.getElementById("history");
+      let Public = document.getElementById("public");
+      let Price = document.getElementById("price");
+      let Mantegh = document.getElementById("mantegh");
+      let Savad = document.getElementById("savad");
+      let Nazm = document.getElementById("nazm");
+
+      // Averages
+
+      let Farsi_a = document.getElementById("farsi-a");
+      let Negaresh_a = document.getElementById("negaresh-a");
+      let Defai_a = document.getElementById("defai-a");
+      let English_a = document.getElementById("english-a");
+      let Sport_a = document.getElementById("sport-a");
+      let Geo_a = document.getElementById("geo-a");
+      let Quran_a = document.getElementById("quran-a");
+      let Arabi_a = document.getElementById("arabi-a");
+      let Fonon_a = document.getElementById("fonon-a");
+      let Riyazi_a = document.getElementById("riyazi-a");
+      let History_a = document.getElementById("history-a");
+      let Public_a = document.getElementById("public-a");
+      let Price_a = document.getElementById("price-a");
+      let Mantegh_a = document.getElementById("mantegh-a");
+      let Savad_a = document.getElementById("savad-a");
+      let Nazm_a = document.getElementById("nazm-a");
+
+      // EventListener
+
+      function average(e) {
+        e.preventDefault();
+
+        let FarsiPlus = parseFloat(Farsi.value) * parseFloat(Farsi_a.value);
+        let NegareshPlus =
+          parseFloat(Negaresh.value) * parseFloat(Negaresh_a.value);
+        let DefaiPlus = parseFloat(Defai.value) * parseFloat(Defai_a.value);
+        let EnglishPlus =
+          parseFloat(English.value) * parseFloat(English_a.value);
+        let SportPlus = parseFloat(Sport.value) * parseFloat(Sport_a.value);
+        let GeoPlus = parseFloat(Geo.value) * parseFloat(Geo_a.value);
+        let QuranPlus = parseFloat(Quran.value) * parseFloat(Quran_a.value);
+        let ArabiPlus = parseFloat(Arabi.value) * parseFloat(Arabi_a.value);
+        let FononPlus = parseFloat(Fonon.value) * parseFloat(Fonon_a.value);
+        let RiyaziPlus = parseFloat(Riyazi.value) * parseFloat(Riyazi_a.value);
+        let HistoryPlus =
+          parseFloat(History.value) * parseFloat(History_a.value);
+        let PricePlus = parseFloat(Price.value) * parseFloat(Price_a.value);
+        let ManteghPlus =
+          parseFloat(Mantegh.value) * parseFloat(Mantegh_a.value);
+        let SavadPlus = parseFloat(Savad.value) * parseFloat(Savad_a.value);
+        let NazmPlus = parseFloat(Nazm.value) * parseFloat(Nazm_a.value);
+
+        let Ave =
+          parseFloat(Farsi_a.value) +
+          parseFloat(Negaresh_a.value) +
+          parseFloat(Defai_a.value) +
+          parseFloat(English_a.value) +
+          parseFloat(Sport_a.value) +
+          parseFloat(Geo_a.value) +
+          parseFloat(Quran_a.value) +
+          parseFloat(Arabi_a.value) +
+          parseFloat(Fonon_a.value) +
+          parseFloat(Riyazi_a.value) +
+          parseFloat(History_a.value) +
+          parseFloat(Price_a.value) +
+          parseFloat(Mantegh_a.value) +
+          parseFloat(Savad_a.value) +
+          parseFloat(Nazm_a.value);
+
+        let Marks =
+          FarsiPlus +
+          NegareshPlus +
+          DefaiPlus +
+          EnglishPlus +
+          SportPlus +
+          GeoPlus +
+          QuranPlus +
+          ArabiPlus +
+          FononPlus +
+          RiyaziPlus +
+          HistoryPlus +
+          PricePlus +
+          ManteghPlus +
+          SavadPlus +
+          NazmPlus;
+
+        let final = (Marks / Ave).toFixed(2);
+
+        if (final >= 15) {
+          Swal.fire({
+            title: final,
+            text: " میانگین نمرات شما خوب بود ",
+            icon: "success",
+            confirmButtonText: "تایید",
+          });
+        }
+        if (final < 15) {
+          Swal.fire({
+            title: final,
+            text: " میانگین نمرات شما بد بود ",
+            icon: "error",
+            confirmButtonText: " تایید ",
+          });
+        }
+      }
+      Form.addEventListener("submit", average);
+      alert(" لطفا اینترنت خود را روشن کنید چون بدون اینترنت کار نمیکند ! ");
+      alert(" سازنده : دانیال جمشیدی ");
+    </script>
+  </body>
+</html>
